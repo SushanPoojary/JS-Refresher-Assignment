@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Gamers Arena</title>
+</head>
+<body style = "background-color: whitesmoke">
+<script src="script.js" defer></script>
+<script src = "https://unpkg.com/axios/dist/axios.min.js"></script>
+<form class = "Registeration-Form" action = "register.html" >
+<div class = "form-header">
+  <h2> Gamers Arena</h2>
+  <h3> Ready Player One! Register Here! </h3>
+</div>
+
+<div class = "form-body">
+  <label for = "playername" >Full Name</label><br />
+  <input type = "text" id = "fullname" placeholder = "Trevor Philips"  autofocus required /> <br /> <br />
+  <label for = "email">Email address</label><br />
+  <input type = "email" id = "email"  placeholder = "trevor@xyz.com" size="30" required /><br /> <br />
+  <label for = "date">Date of Birth</label><br />
+  <input type = "date" id = "date" name = "bday" required /><br /> <br />
+  <label for = "gender">Gender</label><br />
+  <input type = "radio" name = "gender" value = "Male" required/> Male
+  <input type = "radio" name = "gender" value = "Female" required/> Female <br /><br />
+  <label for = "contact">Contact Number</label><br />
+  (<input type = "tel" id = "contact" pattern = "[0-9]{3}" placeholder = "###" title="3-digit area code" size = "3" min = "3" max = "3" required />)
+  <input type = "tel" id = "contact" pattern = "[0-9]{3}" placeholder = "###" title="3-digit prefix" size = "3" min = "3" max = "3" required /> - 
+  <input type = "tel" id = "contact" pattern = "[0-9]{4}" placeholder = "####" title="4-digit number" size = "4" min = "4" max = "4"  required /><br /> <br />
+  <label for = "password">Enter Password</label><br />
+  <input type = "password" id = "password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{8,}$" title = "Enter alphanumeric password of atleast 8 characters" min = "8" required /><br /> <br />
+  <label for = "confirmpassword">Confirm Password</label><br />
+  <input type = "password" id = "confirmpassword" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{8,}$" title = "Re-Enter the password" min = "8" required /><br /> <br />
+  <label for = "gamername" >Game Name</label><br />
+  <input type = "text" id = "gamename" required/>
+  <input type = "button" value = "Game Name Generator" name = "nButton" onclick = "generateNick()" /> <br /> <br />
+  <input type = "button" value = "Player Location" name = "locB" onclick = "playerLocation()" required/> <br />
+  <p id = "ploc"></p>
+  <button onclick="htmlData();">Submit</button>
+  <p id = 'fullname2'></p>
+  <button onclick="randomColor(); randomNumber();">Lucky Draw</button>
+</div>
+</form>
+
+<p><button onclick="hitMeSS(); hitMeLS();" type ="button">Stress Buster, Hit Me!</button></p>
+<div id = "hmuss"></div>
+<div id = "hmuls"></div>
+
+
+<script>
+  axios.get("https://jsonplaceholder.typicode.com/users")
+  .then(response =>{
+    console.log(response.data);
+  })
+  .catch(error => console.error(error));
+</script>
+</body>
+</html>  
